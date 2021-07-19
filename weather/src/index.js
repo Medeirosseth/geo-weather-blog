@@ -20,13 +20,11 @@ class App extends React.Component {
 
   /// React says we have to define render!!
   render() {
-    return (
-      <div> 
-        Latitude: {this.state.lat}
-        <br /> 
-        Error: {this.state.errorMessage}
-      </div>
-    )
+    if(this.state.errorMessage && !this.state.late){
+      return <div>Error: {this.state.errorMessage}</div>
+    } else if (!this.state.errorMessage && this.state.lat){
+      return <div>latitude: {this.state.lat}</div>
+    } else {return <div>Loading</div>}
   }
 }
 
