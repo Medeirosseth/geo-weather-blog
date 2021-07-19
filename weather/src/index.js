@@ -3,11 +3,15 @@ import ReactDOM from "react-dom"
 
 
 const App = () => {
-  return(<div> hi there </div>)
+  window.navigator.geolocation.getCurrentPosition(
+    (position) => console.log(position),
+    (err) => console.log(err)
+  );
+  return<div> hi there </div>
 }
 
 ReactDOM.render(
-  <app/>,
+  <App/>,
   document.querySelector("#root")
 
 )
