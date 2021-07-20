@@ -14,15 +14,23 @@ class App extends React.Component {
         );
   }
 
-  
-  /// React says we have to define render!!
-  render() {
+  //helper method
+  renderContent() {
     if(this.state.errorMessage && !this.state.late){
       return <div>Error: {this.state.errorMessage}</div>
     } else if (!this.state.errorMessage && this.state.lat){
       return(
       <SeasonDisplay lat={this.state.lat} />)
     } else {return <LoadingScreen />}
+  }
+  
+  /// React says we have to define render!!
+  render() {
+    return (
+    <div className="borderred">
+      {this.renderContent()}
+    </div>
+    );
   }
 }
 
